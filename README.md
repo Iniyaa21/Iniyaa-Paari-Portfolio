@@ -9,4 +9,5 @@ It highlights my projects, skills, and experiences through a clean, modern, and 
 - 📖 Shares my story and goals  
 - 📬 Easy contact options for collaboration  
 
+(Yet to implement server for contact form)
 *(Built with love and constant improvement as I grow!)*  
