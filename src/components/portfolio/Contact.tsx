@@ -16,10 +16,9 @@ export const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, label: "GitHub", href: "#" },
-    { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", href: "#" },
-    { icon: <Twitter className="w-5 h-5" />, label: "Twitter", href: "#" },
-    { icon: <Mail className="w-5 h-5" />, label: "Email", href: "mailto:iniyaa@example.com" },
+    { icon: <Github className="w-5 h-5" />, label: "GitHub", href: "https://github.com/Iniyaa21" },
+    { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", href: "https://www.linkedin.com/in/iniyaa-paari/" },
+    { icon: <Mail className="w-5 h-5" />, label: "Email", href: "mailto:iniyaapaari@gmail.com" },
   ];
 
   return (
