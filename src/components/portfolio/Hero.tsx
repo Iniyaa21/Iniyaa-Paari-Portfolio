@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 const roles = [
   "CS Student",
-  "Frontend Developer",
+  "FullStack Developer",
   "AI Enthusiast",
   "Problem Solver",
   "Tech Explorer",
