@@ -3,12 +3,12 @@ import { ExternalLink, Github } from "lucide-react";
 export const Projects = () => {
   const projects = [
     {
-      title: "Codey",
+      title: "Vyntrix",
       description:
-        "An AI command-line assistant for Python that can read, write, and analyze your code, run scripts, and chat with you — all from your terminal",
-      tags: ["Python", "Gemini"],
-      gradient: "from-primary/20 to-primary/5",
-      repo: "https://github.com/Iniyaa21/Codey",
+        "A lightweight backend API for tracking and managing user subscriptions",
+      tags: ["Javascript", "Node.js", "MongoDB Atlas", "Arcjet", "QStash", "Nodemailer"],
+      gradient: "from-primary/20 to-secondary/20",
+      repo: "https://github.com/Iniyaa21/Vyntrix",
       demo: "",
     },
     {
@@ -21,12 +21,12 @@ export const Projects = () => {
       demo: "",
     },
     {
-      title: "Campus Skill-Link",
+      title: "Codey",
       description:
-        "a Next.js + Node.js platform that connects university students to exchange skills. Users can post skill “offers” or “needs,” join study groups, and chat directly within the app to collaborate and learn together",
-      tags: ["TypeScript", "Next.js", "Node.js", "MongoDB"],
-      gradient: "from-primary/20 to-secondary/20",
-      repo: "https://github.com/Iniyaa21/Campus-Skill-link",
+        "An AI command-line assistant for Python that can read, write, and analyze your code, run scripts, and chat with you — all from your terminal",
+      tags: ["Python", "Gemini"],
+      gradient: "from-primary/20 to-primary/5",
+      repo: "https://github.com/Iniyaa21/Codey",
       demo: "",
     },
   ];
