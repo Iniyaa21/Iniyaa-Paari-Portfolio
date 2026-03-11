@@ -8,51 +8,25 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark Glass + Code Aesthetic Theme */
-    --background: 220 25% 8%;
-    --foreground: 0 0% 95%;
+    /* Monochrome dark theme variables (RGB components for Tailwind alpha support) */
+    --bg-main: 0 0 0; /* Primary Background (rgb components) */
+    --bg-secondary: 96 96 96; /* Cards / Sections */
+    --text-muted: 174 174 174; /* Secondary Text */
+    --text-primary: 234 234 234; /* Headings / Primary Text */
+    --text-highlight: 249 249 249; /* Accents */
 
-    --card: 220 20% 12%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 220 20% 10%;
-    --popover-foreground: 0 0% 95%;
-
-    /* Electric Teal Primary */
-    --primary: 187 100% 50%;
-    --primary-foreground: 220 25% 8%;
-
-    /* Neon Purple Secondary */
-    --secondary: 280 80% 60%;
-    --secondary-foreground: 0 0% 95%;
-
-    --muted: 220 15% 20%;
-    --muted-foreground: 0 0% 60%;
-
-    --accent: 280 80% 60%;
-    --accent-foreground: 0 0% 95%;
-
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 0 0% 95%;
-
-    --border: 220 15% 25%;
-    --input: 220 15% 20%;
-    --ring: 187 100% 50%;
+    /* Backwards-compatible tokens used by Tailwind mapping (use rgb(var(--...) / alpha)) */
+    --background: rgb(var(--bg-main) / 1);
+    --foreground: rgb(var(--text-primary) / 1);
+    --card: rgb(var(--bg-secondary) / 1);
+    --card-foreground: rgb(var(--text-primary) / 1);
+    --muted: rgb(var(--text-muted) / 1);
+    --muted-foreground: rgb(var(--text-muted) / 1);
+    --border: rgba(255, 255, 255, 0.06);
+    --input: rgba(255, 255, 255, 0.03);
+    --ring: rgba(255, 255, 255, 0.06);
 
     --radius: 0.75rem;
-
-    /* Glass Effect Variables */
-    --glass-bg: 220 20% 15%;
-    --glass-border: 0 0% 100%;
-    --glass-shadow: 187 100% 50%;
-    
-    /* Glow Effects */
-    --glow-primary: 187 100% 50%;
-    --glow-secondary: 280 80% 60%;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(187 100% 50% / 0.3), hsl(280 80% 60% / 0.3));
-    --gradient-radial: radial-gradient(circle at center, hsl(187 100% 50% / 0.1), transparent 70%);
   }
 }
 
@@ -62,63 +36,73 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-mono;
-    background-image: 
-      radial-gradient(circle at 20% 50%, hsl(187 100% 50% / 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, hsl(280 80% 60% / 0.05) 0%, transparent 50%);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(
+      --font-family,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      "Roboto Mono",
+      "JetBrains Mono",
+      monospace
+    );
   }
-  
+
   /* Glass Card Styles */
   .glass-card {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl;
-    box-shadow: 
-      0 8px 32px 0 rgba(0, 217, 255, 0.1),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--card);
+    border-radius: var(--radius);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
   }
-  
+
   .glass-card-hover {
-    @apply glass-card transition-all duration-500;
+    transition: all 400ms ease;
   }
-  
+
   .glass-card-hover:hover {
-    @apply border-primary/50 bg-white/10;
-    box-shadow: 
-      0 8px 32px 0 rgba(0, 217, 255, 0.3),
-      0 0 0 1px rgba(0, 217, 255, 0.2),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: var(--card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
-  
-  /* Glow Effects */
-  .glow-text-primary {
-    text-shadow: 0 0 20px hsl(187 100% 50% / 0.5);
+  /* Remove neon glows: provide subtle alternatives */
+  .no-glow {
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
   }
-  
-  .glow-text-secondary {
-    text-shadow: 0 0 20px hsl(280 80% 60% / 0.5);
+
+  .subtle-border {
+    border: 1px solid var(--bg-secondary);
+    box-shadow: none;
   }
-  
-  .glow-border-primary {
-    box-shadow: 0 0 20px hsl(187 100% 50% / 0.3);
+
+  .muted-text {
+    color: var(--text-muted);
   }
-  
-  .glow-border-secondary {
-    box-shadow: 0 0 20px hsl(280 80% 60% / 0.3);
+
+  .highlight-text {
+    color: var(--text-highlight);
   }
 
   /* Code Aesthetic */
   .terminal-text::before {
-    content: '> ';
+    content: "> ";
     @apply text-primary;
   }
-  
+
   /* Smooth Scrolling */
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Selection */
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    background-color: rgb(var(--text-highlight) / 0.3);
+    color: var(--foreground);
   }
 }
-

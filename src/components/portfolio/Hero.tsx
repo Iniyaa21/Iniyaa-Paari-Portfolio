@@ -69,10 +69,7 @@ export const Hero = () => {
               Hello World
             </p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              I'm{" "}
-              <span className="glow-text-primary bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Iniyaa
-              </span>
+              I'm <span className="text-primary">Iniyaa</span>
             </h1>
           </div>
 
